@@ -1,0 +1,922 @@
+Network Types
+
+Peer-to-peer
+	all devices are both clients and servers
+	difficult to secure and administer
+	easy deployment and low cost
+
+Client-server
+	Central server
+		clients talk to the server
+	performance and administration
+
+LAN- Local area Network
+	Ethernet and 802.11 wireless
+
+MAN- Metropolitan Area Netowrk
+	Network in you city
+	smaller than WAN
+	MAN Ethernet -fiber cables
+
+WAN- Wide Area Network
+	over the globe
+	slower
+	point-to-point serial, MPLS
+
+WLAN-Wireless Lan
+	802.11 technologies
+	multiple access points can be used to exand range
+
+PAN- Personal Area Network
+	Bluetooth, IR, NFC
+
+CAN- Campus Area Network
+	LAN technologies
+	fiber
+
+DATA STORAGE
+NAS- Network Attached Storage
+	connect to a shared storage device across the netwokr
+	file-level access
+		changes entire file when messed with
+
+SAN- Storage Area Network
+	block-level access
+	effienct reading and writing on data
+		change single byte on files
+
+MPLS- Multiprotocol Label Switching
+	WAN technology
+	EDGE ROUTERS PROTOCOL SETUP
+	customer
+	provider - label added "MPLS cloud"
+	label switch
+	label switch
+	provider - label removed
+	customer
+	
+mGRE- Multipoint Generic Router Encapsulation
+	configuring MPLS to find location that will be connected in the future 
+	two remote sites can directly connect to eachother without communicating to the  main office
+
+SD-WAN --- SOftware Defined Networking in a Wide Area Network
+	remote sites can connect directly to cloud without connecting to main data center access poiint 
+	Cloud base services
+		how data gets routed
+		efficiency
+
+WAN TERMINATION
+	Demarcation point- where connection to outside work
+	WAN provider
+	Internet service provider
+
+CPE- consumer premisis equipment
+
+NIU- network interface unit
+	smartjack- diagnostics
+	
+VIRTUAL NETWORKS
+	server farm
+	
+	NFV- Network function virtualization
+		hypervisor- virtual network topology
+		routing, switchin, load balancing, firewalls, 
+		
+hypervisor- harware management
+		virtual machine manager
+	virtual switch
+		forwarding options
+		link aggregation
+		port mirroring
+		netflow
+
+vNIC- Vitual Network Interface Card
+	network interface for vms
+	connected through hypervisor
+		VLAN,agregation, multiple interfaces
+
+SATELLITE NETWORKING
+	comms to a satellite
+	high latency
+	high cost
+Internet Connectivity
+
+copper<fiber optics
+
+DSL- telephone line
+
+cable boradband
+
+fiber optic- frequencies of light
+
+Metro Ethernet-metropolitan-area network
+
+
+COPPER CABLING
+4 pairs of wires
+	Transmit+, Transmit-/Recieve+, Receive-
+	different twist rates
+
+Coaxial cables
+	conductor
+	two or more forms share a common axis
+		modems
+		rg-6
+		tv-cable and high speed internest
+
+Twinaxial cable
+	two inner conductors
+	common on 10 gb ethernet sfp+ cables
+	five meters
+	low cost
+
+Standards
+	ISO/IEC 11801 cabling standards
+		classes of networking standards
+	Telecommunication Industry Association
+		ANSI/TIA-568
+	Commercial Building Telecommunications Cabling Standard
+	
+pin and pair assignment of eight-conductor 100 ohm balanced twisted pair cabling
+	different colors for different standards
+	
+	T568A-horizontal cabling
+	T568B- used most by organizations
+		difficult to change in mid-stream
+
+FIBER COMMUNICATION
+	Transmission by  light
+	no rf signal
+	signal slow to degrade
+	immune to radio interference
+	Ferrule- protects fiber core (connector)
+
+	Multimode fiber
+		LED
+		short range comms
+	Single mode fiber
+		long distance
+		laser beams
+
+NETWORK CONNECTIONS
+	FIBER CONNECTIONS
+	lc- loal connector
+		routers/switches
+	ST= Straight tip 
+	SC- subscriber connector
+	MT-RJ- Mechanical Transfer Registereed Jack
+
+	UPC and APC
+		controlling light through cables
+		return loss- light reflected back to source
+	UPC- Ultras- polished connectors
+		high return loss
+	APC- angle- polished connectors
+		lower return loss
+		uses angles to reflect light not back at the source
+	COPPER CONNECTIONS
+	RJ11 connector
+		telephon and dsl connection
+		2-4 conductors on  6 positions
+	RJ45 connector
+		8 positions 8 conductors
+		modular connector 
+		Ethernet
+	F-connector
+		cable television
+		cable modem
+		(standard)DOCSIS- Data over Cable Service Interface Specification
+
+NETWORK TRANSCEIVERS
+	Media Converter
+		OSI layer 1
+			physiscal layer signal
+		use copper wire over long distance
+			converst cooper to fiber to copper
+		has a power connevtor
+	Tansceiver
+		transmitter and receiver
+		many different types for different networks
+		Duplex Comms
+		TWO fibers uses to transmit and receive
+		bi-directional transceivers
+			traffic in bother directions with single fiber
+		Types
+			SFP- small form-factor pluggable
+				1gb fiber
+			SFP+
+				10gb fiber
+			Quad SFP
+				4 channel
+				4 gb
+			QSFP +
+				40 gb
+				smaller
+	
+CABLE MANAGEMENT-  rewatch!!!!!!
+	Cable infrastructure	
+		office cables to patch panel through 110 blcok often using RJ45 connectors
+			
+ETHERNET STANDARDS
+	twisted pair copper or fiber 
+	BASE(baseband)
+		single frequency using the entire medium
+	Broadband
+		many frequency using one wire
+	10BASE-T(twisted pair)
+		two pair
+		100 meter
+	100BASE-TX
+		faster ethernet
+	1000BASE-T
+		bigabit ethernet over category 5
+	10GBASE-T
+		10gig thernet over copper
+		500MHz
+		CAT6
+	40GBASE-T 
+		40gig per sec
+		cat 8
+	100BASE-FX
+		pair of multimode fiber
+	100BASE-SX
+		cheaper
+	1000BASE-SX
+		short wavelength laser
+	1000BASE-LX
+		long wavelength laser
+	10GBASE-SR(short range)
+		multimode fiber
+	10GBASE-LR(long range)
+		single mode fiber
+	WDM-Wavelength Division Multiplexing
+		bidrectional communication over a single strand of fiber
+		CWDM-Coase Wavelength-Division Multiplexing
+		DWDM-Dense Wavelength-Division Multiplexing
+
+BINARY MATH
+	Network subnetting
+	0=off
+	1=on
+	byte=8bits
+2^x
+	128	64 	32	16	8	4	2	1
+		decimal
+
+IPv4 ADDRESSING
+	IP address
+		unique	
+		192,168.1.165
+		each contain 8 bits or 1 byte
+			4 bytes
+	Subnet mask
+		255.255.255.0	
+		correlates with IP
+		part of the network
+		switches
+	Default gateway
+		router that enables comms with outside
+		IP address on the local subnetwork
+	Loopback address
+		an address to yourself
+		127.0.0.1-127.255.255.254
+		diagnostics for TCP/IP
+	Reserved Addresses    
+		future uses and testing
+		240.0.0.1-254.255.255.254
+	Virtual IP Address
+		internal router address
+		not associated with a physical network adapter
+		
+	OSI Layer 3 adresss
+	
+	DHCP- Dynamic Host Configuration Protocol
+		provides automatic address and ip config for almost all device
+		devices are connected to this server to automatically be assigned a IP adress
+			outside of subnet
+
+	APIPA- Automatic Private IP Addressing
+		link-local address
+		within the same subnet
+		cannot directly connect to internet
+			routers cannot foward APIPA
+		169.254.1.0-169.254.255.254
+
+NAT- Network Address Translation
+	source IP and destination IP
+		RFC 1918 private IPv4 addresses
+			different ranges of private IP addresses
+			10.0.0.0-10.255.255.255
+			172.16.0.0-172.31.255.255
+			192.168.0.0-192.168.255.255
+	
+		NAT= when a device changes address throughout throughout the network	
+			routers ofter perform translation
+			converts source private IP address to public address before hitting Internet
+		NAT overload/PAT (port addreess translation)
+			used when destination has multiple IP address/devices within the subnet
+			port numbers after IP address
+				NAT table is created
+ 					convert private to public address with new port number
+
+UNICAST COMMUNICATION
+		one station sending information to another station
+			1 to 1
+		web surfing, file transfer
+			real-time streaming
+		IPv4 and IPv6
+		
+		Broadcast communication
+			send info to everyone at once that is within the range
+			one packet received by all
+				efficiency from source
+			broadcast domain- limited range of availability
+				routing protocols for updates
+					ARP requests
+				IPv4
+					end users effect performance
+		multicast=ipv6
+				limits the amount of info sent to each device for better performance	
+			sends info to systems that want the info
+			multimedia delivery, stock exchanges, dynamic routing updates
+			specialized and hard to use at scale
+				
+		Anycast
+			connect to a single device on the network that has multiple options
+			announce the same route out of multiple data centers, clients use the data center closest to them
+				communicates geographically
+			DNS 
+
+CLASSFUL SUBNETTING- not used anymore
+	referenced by leading bits
+
+	Class A (1-127) subnet=255.0.0.0 ------------8bit
+	Class B(128-191)subnet= 255.255.0.0-----16 bit
+	Class C(192-224)subnet= 255.255.255.0----24 bit
+	Class D-multicast IPv4 (224-239)
+	Class E-reserved(240-254)
+		never used ip adress
+
+	contructing a subnet from IP address
+		network address
+			host bits to 0 
+		first usable host address for subnet
+			one number higher than network address
+		network broadcast addresss
+			last IP of subnet
+			host bits to 1 (255 decimal)
+		last usable host address for subnet
+			one num lower than the broadcast address
+
+		examples
+			IP 10.74.222.11
+				10.= network
+				74.22.11= host
+		
+		net		10.0.0.0
+		first host	10.0.0.1
+		net broadcast 10.255.255.255
+		last host	10.255.255.254
+
+
+			IP 172.16.88.20
+				172.16.= network
+				88.200=host
+
+				172.16.88.200
+				172.16.0.0
+				172.16.0.1
+				172.16. 255.255
+				172.16.255.254
+
+IPv4 SUBNET MASKS
+	continguouse series of 1's with 0's on right
+		CIDR-block notation
+		11111111.11111111.11111111.00000000
+		1's= network
+		0's=host
+			count the number of 1's
+				"/24" 
+				remaining 1's are subnet bits
+
+
+		binary(end of subnet mask) to decimal to CIDR Notation to Network to Host per network
+
+		00000000=0=/24=1=254
+		10000000=128=/25=2=126
+		11000000=192=/26=4=62
+		11100000=224=/27=8=30
+		11110000=240=/28=16=14
+		11111000=248=/29=32=6
+		11111100=252=/30=64=2
+		11111110=254=/31=128=1
+		11111111=255
+
+
+CALCULATING IPv4 SUBNETS AND HOSTS
+	ROUTUER SEPERATE THE NETWORK INTO SMALLER PIECES
+	VLSM= variable length subnet masks
+		class-based networkds are inefficient
+		allow network administrators to define their own masks
+			customize the subnetmask for specific network requirements
+			use different subnet masks in the same classful network
+	Classless addressing
+		network
+		subnet
+		host
+			administrators can chose how many subnet and host bits
+			2^subnet bits=num of subnets
+			2^host bits -2= hosts per subnet
+
+MAGIC NUMBER SUBNETTING
+	4 main addresses
+		network adress/ subnet ID= first address of subnet
+		Broadcast address- last address of subnet
+		first available host address= 1 plus network address 
+		last available host address= 1 minus broadcast address
+
+
+CIDR(grouped by octet)---------------------------------->Decimal------------------------------------Magic number
+/9	/17	/25------------->128-------------------------------------------------128
+/10	/18	/26------------->192-------------------------------------------------64
+/11	/19	/27------------->224-------------------------------------------------32
+/12	/20	/28------------->240-------------------------------------------------16
+/13	/21	/29------------->248-------------------------------------------------8
+/14	/22	/30------------->252-------------------------------------------------4
+/15	/23	/31------------->254-------------------------------------------------2
+/16	/24	/32------------->255-------------------------------------------------1
+
+Steps
+subnet mask to decimal
+identifying intersting octet
+calculate magic number (256- intersting octet)
+calculate host range
+network address
+broadcast address
+
+===========================
+Example:
+IP address 165.254.77.14
+subnet mask 255.255.240.0----------------- 265-240=16 range
+--------------------------------------------
+subnet ID 165.254.64.0
+	64 comes from where 77 can fit within the range
+
+
+Broadcast ID
+	to find interesting octet= subnet ID + magic number - 1
+165.245.79.255
+	64+16-1=79
+
+Host Range
+	subnet ID + 1 = first host 165.245.64.1
+	broadcast-1= last host 165.245.79.254
+
+
+IPv6 ADDRESSING
+	128 BIT ADDRESS
+	16 byte
+
+	DNS can be used instead to identify the device
+
+	groups of zeros can be abbreviated with a double colon
+		leading zeors are optional
+
+
+DHCP- server that automatically assigns address to devices 
+	most used in IPv4
+
+
+Static addressing- IP address never changes
+
+ MAC address never changes
+	Extended Unique Identifier (64-bit)
+
+
+IPv6= EUI-64
+	combined a 64 bit IP{v6 prefix and the Mac address
+
+
+MAC addresses= Media Access Control Address
+	physical address of a network adapter (network interface card)
+		NIC= computer hardware that connects a computer to a computer network
+
+	EUI(48 bit)
+	
+	8c:2d:aa						:		4b:98:a7
+	OUI-Organizationally UniqueIdentifier			Network  Interface  Controller-Specific
+		-"manufacturor"						-"serial number"
+	
+EUI-48 ------>EUI-64
+	split the mac in half
+		24 bit halves or 3 byte halves
+	put "FFFE" in the middle of the 16 bits
+	invert the 7th bit of the initial address
+		changes the address from globally unique and universal
+		turns the burned-in address (BIA ) into a locally administered address
+		This is the U/L bit (universal/local)
+		"universal to local address"
+
+building the IPv6 address
+	64 bit subnet prefix
+	the EUI- 64 address
+	
+	64-bit IPv6 Subnet Prefix					3byte MAC			FFFEE			3 byte MAC
+	2600:dddd:1111:0001:					8e2d:aa			ff:fe				4b:98a7
+
+IPV6 ADDRESS
+	Internet Assigned Numbers Authority (IANA)
+		provides address blocks to  RIRs(Regional Internet Registries)
+			RIRs assigns smaller subnet blocks to  ISPs
+				ISP assigns a /48 subnet to the customer
+
+subnetting the IPv6 address
+	provided by IANA/RIR/ISP			locally assigned			Host ID
+	Global routing Prefix= 48 bits			Subnet=16bits			host=64 bits
+	2600:DDD:1111					0001					0000:0000:0000:0001
+
+
+CONFIGURING IPV6
+	6to4 addressing
+		send IPv6 over an existing IPv4 network
+		no support for NAT
+		requires relay routers
+
+	4in6 tunneling
+		-tunnel IPv4 traffic on an IPc6 network
+
+	both are not used often
+
+	Teredo/Miredo
+		tunnnel IPv6 through NATed IPv4
+		temporary uses
+		no special routers
+		
+	Dual-stack Routing
+		run both at the same time
+		interfaces will be assigned multiple address types
+
+
+	no broadcast in IPv6
+		no ARP in IPv6
+
+	Neighbor Solicitation (NS)
+		-sent as a multicast
+		-call
+
+	Neighbor Advertisement (NA)
+		reply
+
+			
+NDP- Neighbor Discovery Protocol
+	use multicast with ICMPv6
+
+	Neighbor MAC Discovery
+		-replaces the IPv4 ARP
+
+	SLAAC= Stateless Address Autoconfiguration
+		automatically configure an Ip Address without a DHCP server
+
+	DAD= duplicate address detection
+		no duplicate IPs
+
+	discover router
+		router solicitation
+		router advertisement
+
+INTRODUCTION INTO IP
+		
+
+Internet Protocol
+
+CLIENT---------->|ethernet header|	IP	|TCP|		TCP payload (HTTP data)	|ethernet trailer|-------->SERVER	
+
+
+TCP and UDP
+	OSI layer 4-transport 
+	Multiplexing- use many different applications at the same time
+	source port and destination port
+
+TCP-transmission control protocol
+	connection-oriented
+		setup and close
+		reliable delivery"ACK flag"
+	
+
+UDP-user datagram protocol
+	connectionless
+	no error recovery
+	no reordering
+	no ack
+	no flow control
+		sender determines the ammount of data transmitted
+
+port numbers are used to tell the IP where to go
+	numbers are used for communication and not security
+
+socket= ip address with port numbers
+	IPv4 sockets
+		server IP addresss, protocol, server application
+		client IP address, protocol, client port number
+	Non-ephemeral ports-permanent port numbers
+		0-1023>>>>>>> usually associated with a server or service
+	Ephemeral ports- temporary port nums
+		1024-65,535>>>>>>> must identify wether the port is temporary or permanent
+
+
+COMMON PORTS
+Telnet- Telecommunication Network
+	-tcp/23
+	login to devices remotely
+	console access
+	terminal communications
+	in the clear communication
+
+SSH- Secure Shell
+	tcp/22
+	look and acts the same as telnet with security
+
+
+DNS- Domain Name System
+	udp/53
+	converts names to IP addresses
+		domain to IP
+	large transfers use tcp/53
+	
+
+SMTP- simple mail transfer protoco
+	server to server email transfer
+	tcp/25 smtp using plaintext
+	tcp/587 smtp using TLS encryption
+
+IMAP, POP3 protocols are used to receive emails 
+	authenicate and transfer
+
+POP3-post office protocol version 3
+	tcp/110 (plaintext)
+	tcp/995(POP3 over TLS)
+
+IMAP4-Internet Message Access Protocol v$
+	tcp/143 (plaintext)
+	tcp/993(IMAP over TLS)
+	includes management of email inbox from multiple clients
+
+SFTP- SEcure FTP
+	tcp/22 (SSH)
+	uses SSH File Tranfer Protocol
+	file system functionality
+		resuming interrupted transfers, directory listings, remote file removal
+	encrypted coms
+
+FTP- file transfer protocol
+	tcp/20(active mode data)		tcp/21 (control)
+	transfers files between systems
+	authenticates with a username and password
+	full-featured functionality (list, add, delete, etc.)
+
+
+TFTP- Trivial FIle Transfer Protocol
+	udp/69
+	very simple file transfer applicaiton
+		read files and write files
+	no authentication
+		not used on production systems 
+
+DHCP- Dynamic Host Configuration Protocol
+	Automated configuration of IP address, subnet mask and other options
+		-upd/67
+		-udp/68
+		needs a DHCP server
+			server, appliance, integratewd into a soho router, etc.
+	Dynamic/ pooled- "pool of IP addresses"
+		IP addresses are assigned in real-time from a pool
+		Each system is given a leases a must renew at set intervals
+			24hrs then IP address need to be renewed
+	DHCP reservation
+		Addresses are assigned by MAC address in the DHCP server
+		manage addresses from one location
+		
+HTTP and HTTPS- Hypertext TRansfer Protocol
+	comms in the browser and by other applications
+	clear or encrypted (SSL)(TLS)
+		
+
+SNMP- Simple Network Management Protocol
+	gather stats from network devices
+		udp/161
+	v1- the OG
+		in the clear comms
+		structured tables
+	v2- 
+		bulk transfers
+		data type enhancements
+		in the clear comms
+	v3
+		message integrity
+		authentication
+		encryption
+		
+	SNMP trap
+		alerts and notifications from the network devices
+			sends message when anythying goes wrong
+		udp/162
+	
+Syslog
+	standard for message logging
+		centrailizes logs of devices in repository
+	udp/514
+	usually a central log collector
+		ntegrated into the SIEM(security informationa dneven manager)
+		large storage base of SIEM is needed 
+
+RDP- Remote Desktop Protocol
+	share a desktop from a remote location over tcp/3389
+
+NTP- Network Time Protocol
+	Switches, routers, firewalls, servers, workstations
+		every device has its own
+		udp/123
+	Synchronizing the clocks
+		used to:
+				log files
+				authentication infromation,
+				outage details
+	automatic synchronization
+		admins can choose how often to update
+
+SIP- sessions initiation protocol
+	VoIP= voice over IP signaling
+		tcp/5060 and tcp/5061
+	setup and manage BoIP sessions
+		call, ring, end
+	extend voice communication
+		video confercing
+	instand messaging
+		file transfer
+
+SMB-Server Message Block protocol
+	file sharing, printer sharing(sending data to ....)
+	CIFS= common internet file system
+	tcp/445
+		doesnt use NetBIOS to comm
+		
+LDAP/LDAPS= lightweight directory access protocol
+	-tcp/389
+	-store and retrieve info in a network directory
+LDAPS (LDAP Secure)
+	non standards implementation of ldap over ssl
+	-tcp/636
+
+Databases
+	Microsoft SQL Server
+		MS-SQL (Microsoft structured query language
+		tcp/1433
+	Oracle SQL *Net = "ORacle Net" "Net8"
+		-tcp/1521
+
+	MySQL free and open source database
+		acquired by Oracle eventually
+		-tcp/3306
+
+*OTHER USEFULE PROTOCOLS*\
+
+ICMP= Internet Control Message Protocol
+	text messaging for your network devices
+		protocol carried by IP
+			not used for data transfer
+	devices can request and reply to administrative requests
+	ICMP packet is sent to device to see if it is there
+		replies back if their is an error and what the error is often times
+
+
+GRE=generic routing encapsulation
+		"tunnel" between 2 devices
+		encapsulate traffic inside of IP
+			no built in encryption
+				vpns can be used for security
+
+VPNs=virtual private networkds
+	encrypted (private) data traversing a public network
+	VPN Concentrator
+		encryption/decryption access device
+		often integrated into a firewall
+		many deployment options for vpns
+			specialized cryptographic hardware
+			software-based options
+				some built into Operating System
+
+IPSec=Internet Protocol Security
+	vpn protocol
+	security for OSI Layer 3
+		every packet goes through authentication and encryption
+			confidentiality and integrity/anti-replay(info cannot be resent through tunnel)
+				encryption and packet signing
+		two core IPSec protocols
+			AH=Authentication Header
+			ESP=encapsulation security payload
+
+	AH protocol
+		hash of the packet and a shared key
+			adds the AH to the packet header	
+			md5, sha-1, sha-2 encryption
+	
+	ESP protocol
+		encrypts the packet
+			md5, sha-1, sha-2 for hash
+			3des or aes for encryption
+		adds a header, trailer, and an integrity check value
+	
+*DHCP OVERVIEW 1.6*
+
+IPv4 address configuration used to be manual
+	manually configuring ip address, subnet mask, gateway, DNS servers, NTP servers,etc
+	BOOTP protocol-automatically assign ip but cannot configure(dont know when ip available again)
+
+
+DHCP=dynamic Host Configuration Protocol
+	sends packets as a broadcast
+	privides automatic address/ IP configurations for almost all devices
+	STEPS
+		1. Discover
+		2. Offer
+		3. Request- IP looks good and ready to use
+		4. Acknowledgement- configures the offered IP
+		
+
+	ENTERPRISES WITH DHCP
+		uses Ipv4 broadcast
+			limited comms that stop at the router
+		multiple servers needed to handle the load of devices
+	DHCP relay/ helper function= relays the broadcast directly to DHCP server
+		broadcast request is sent to router to be sent to another router that has the specific DHCP server
+			router relays ip configurations from a DHCP server from another domain
+
+*CONFIGURING DHCP*
+	
+DHCP scope
+	ip address range- "dhcp pools"
+		blacklisted addresses are identified
+	subnet mask
+	lease duration	= how long to have ip 
+	DNS server
+	defauult gateways
+	dns servers
+
+Dynamic assignment
+
+
+Automatic assignment 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+============================
+
+
+
+8-unit 1
+4-unit 2
+3-unit 3
+5-unit 4
+4-unit 5
+---
+24 /2 ch a day = 12 days 
+		  +   2 study days
+
+
+
+-----------------------------------------------
+14days till exam
+
+
+Networking fundamentals
+Network Implementations
+Network Operations
+Network Security
+Network Troubleshooting
+
+
+
+
+
+
+
+
+
+
+
