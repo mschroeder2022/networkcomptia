@@ -863,11 +863,375 @@ DHCP scope
 	dns servers
 
 Dynamic assignment
+	big pool of addresses to give out
+	reclaim when lease is up
 
 
 Automatic assignment 
+	same as dynamic assignment
+		keeps a list of past assignments
+		can assign same address after it has been recalimed by the pool
+
+Static assignment
+	administratively configure
+	table of MAC addresses
+		Each MAC address has a matching IP address
+	other names:
+	"static DHCP
+	address reservation
+	IP reservation
+
+DHCP leases
+	temporary
+	can be permanent
+	allocation- assign a lease time by the DHCP server
+		admin configured
+	Reallocation
+		reboot your computer
+		confirms the lease
+	workstation can also manually release the IP address
+		move to another subnet
+
+DHCP rennewal
+	T1 timer
+		check in with the lending DHCP server to renew the IP address
+		50% lease time
+	T2 timer
+		if the og DHCP server is down, try rebinding with any DHCP server
 
 
+
+*AN OVERVIEW OF DNS*
+
+DNS= domain name system
+	hirerarchical
+	distributed database
+	human names to computer IP addresses
+
+Many DNS servers
+	13 rppt server c;isters (1000+ actual servers)
+		hundreds of generic top-level domains (gTLDs)=.com,.org,.net
+		over 275 country code top-level domains (ccTLDs)=.us,. ca, .uk, etc
+
+Internal DNS
+	managed on inernal servers
+	configured and maintained by the local team
+	contains DNS information about internal devices
+	DNS service on Windows Server
+
+External DNS
+	third party managed
+	does not have internal device information
+		Google DNS, Quad9, etc. 
+
+Recursive DNS  query
+	Delegate the lookup to a DNS server
+	server does the work and reports back
+	large DNS cache provides a speed advantage
+
+
+Iterative DNS query
+	do all the queries yourself
+	your DNS cache is specific to you
+
+
+	The authority
+		authoritative
+			The DNS server is the authority for the zone
+		non-authoritative
+			doesnt contain the zone source files
+			probably cached information
+		TTL=time to live
+			configured on the authoritative server
+			specifies how long a cache is valid
+			long ttl can problems is not changed
+
+Lookups 
+	forward lookup
+		provide the DNS server with an FQDN
+		DNS server provides an IP address
+	reverse DNS
+		provide the DNS server with an IP address 
+		the DNS server provides an FQDN
+
+
+*DNS records*
+
+Resource rescords (RR)
+	database records of domain name services
+	
+30+ record types
+	ip addressses, certificates, host alias names, etc
+
+
+Configuration file
+	SOA=strart of authority
+		structure
+			in SOA(internet zone, start of authority) with name of zone
+			serial number
+			refresh, retry, and expiry timeframes
+			caching duration/TTL
+	Address records(IPv4=A) (IPv6=AAAA)-most popular query
+		defines the i[ address of a host
+	Canonical name records(CNAME)
+		a name is an alias of another, canonical name
+			alias of server or services
+	Service records= SRV
+		finds a specific service
+	Mail exchanger record (MX)
+		determines the host name for the mail server
+		not an IP address
+	NAme server records(NS)
+		used to enable hierachy in DNS
+		list the name servers for a domain
+			ns recrods point to the name of the server
+	Pointer record= PTR
+		reversse dns lookup
+		the revers of an A or AAAA record
+			added to a reverse map zone file
+	Text records =txt
+		human-reachable text information
+			useful public information
+	SPF protocol = sender policy framework
+		prevent mail spoofing
+		mail servers check that incoming main really did come from an authorized host
+	DKIM = Domain Keys Identified Mail
+		digitally sign your outgoing mail
+		validated by the mail server, not usually seeen by the end user	
+		put your public key in the DKIM TXT record
+
+Zone transfers
+	replicate a DNS database
+		the primary dns server has the primary copy of the zone information
+	Sychronize to a secondary server
+		provide redundancy
+	triggered by referencing the serial number
+		if the serial number increases there must have been a chane
+	full zone transfers can be a security risk
+		attackers can use the data as reconnaissance
+
+*OVERVIEW OF NTP*
+NTP= network time protocol
+
+	switches, routers, firewalls, servers, workstations
+		everything has its own clock
+	synchronizing the clocks becomes critical
+		log files, authentication information, outage details
+	automatic updates
+	flexibility
+		control how to update clocks
+	very accurate
+
+NTP clients and servers
+	NTP server
+		listens on udp/123, responds to time requests from NTP clients
+		cannot change their own time
+	NTP clients
+		requests time updates from NTP server
+	NTP clinet/server
+		reqiests time updates from an NTP server
+		responds to time requests from other NTP clients
+NTP stratum layers
+	some clocks are better than others 
+		distance from the original reference clock is a stratum
+	stratum 0
+	atomic clock, GPS clock
+		accurate
+	stratum 1
+		synchronized to stratum 0 servers
+		primary time servers
+	stratum 2
+		sync'd to stratum 1 servers
+
+Configuring NTP
+	NTP client
+		specify the NTP server address (IP or hostname)
+		use multiple NTP servers (if available) for redundancy
+	NTP server
+		you need at lease one clock source
+		specify the stratum level of the clock
+		if there is a choice
+			the lower stratum level wins
+
+
+*NETWORK ARCHITECTURE 1.7*
+3 tier architecture
+	Core
+		center of the network
+		webservers, databases, applications
+			many people need access
+	Distribution
+		midpoint between the core and the users
+		communication between access switches
+		manage the path to the end users
+	Access
+		where the users connect
+		end stations, printers
+
+SDN= software defined networking
+	netowrking devices have different functional planes of operation
+		data, control, and management planes
+	split the function into separate logical units
+		extend the functionality and management of a single device
+		perfectly built for the cloud
+
+	Infrastructure layer="Data plane"
+		process the network frames and packets
+		forwarding, trunking, encrypting, NAT
+	Control layer "control plane"
+		manages the actions of the data plane
+		routing tables, session tables, NAT tables
+		Dynamic routing protocol updates
+	Application layer "Management plane"	
+		configre and manage the device
+
+Spine and leaf architecture
+	each leaf switch connects to each spine switch
+		each spine switch connects to each leaf switch
+	leaf switches do not connect to each other
+		same for spine switches
+"Top-of-rack switching"
+	each leaf is on the top of a physical network rack
+	maing disavantages is a lot a switches
+
+Traffic flows within a data center
+	East-west
+		traffic between devices in the same data center
+		relatively fast response times
+	North-South
+		Ingress/ egress to an outside device
+		a different security posture than east-west traffic
+
+Network locations
+	branch office
+		remote location
+		client devices, printers, switch, router, firewall
+	on-premises data center
+		technology is located in-house
+		requires power, cooling, and ongoing monitoring
+	Colocation
+		share a data center with others
+		local oversight and monitoring
+
+*STORGAGE ARE NETWORK* = SAN
+-looks and feels like a local storage device
+-block-level accesss
+		efficient reading and writing
+	needs a lot of bandwidth
+		may use an isolated network and high-speed network technologies
+
+Fiber Channel (FC)
+	a specialized high-speed topology
+		connects servers to storage
+		uses both fiber and copper
+	servers and storage connect to a FC switch
+		server (initiator) needs a FC interface
+		storage (target) is commonly referenced by SCSI, SAS, or SATA commands
+
+use FC over an Ethernet network
+	no special networking hardware needed
+	usually integrates with an existing FC infrastructure
+	not routable
+
+iSCSI
+	Internet Small Computer Systems Interface
+		sends SCSI commands over an IP network
+		makes a remote disk look and operate like a local disk
+			like FC
+		can be managed through software
+			ddrivers available for many operating systems
+			no proprietary topologies or hardware needed
+
+*CLOUD MODELS 1.8*
+Infrastructure as a service (IaaS) or ....................... Hardware as a Service
+	outsouce your equipment
+	responsible for management and security
+	web server providers
+
+Software as a service= SaaS
+	on-demand software
+		no local installation
+	central management of data and applications
+		your data is out there
+	a complete application offering
+		no developent work required
+		google mail, office 365
+
+Platform as a service= PaaS
+	No servers, no software, no maintenance team, no HVAC
+		someone else handles the platform, you handle the development
+	you dont have direct control of the data, people, or infrastructure
+		trained security professionals are watching your stuff
+	put the building blocks together
+		develop your app from whats available on the platform
+		
+Cloud deployment models
+	public
+		available to everyone over the internet
+	community
+		several organization share the same resources
+	private
+		your own virtualized local data center
+	Hybrid
+		a mix of public and private
+
+Desktop as a Service
+	Basic application usage- application actually run on a remote server
+	Virtual dEsktop Infrastructure (VDI)
+	local device is a keyboard, mouse, and screen
+
+	minimal operating system on the client
+		no huge memory or CPU needs
+	Network connectivity
+		Big network requirment
+		everything happens on a wire
+
+
+
+*DESIGNING THE CLOUD*
+
+
+-on-demand computing power
+-elasticity
+	scale up or down as needed
+-applications also scale
+	scalability for large implementations
+	access from anywhere
+-multitenancy
+	many different clients are using the same cloud infrastructure
+
+Infrastructure as code
+	describe an infrastructure
+		define servers, network, and applications as code
+	modify the infrastructure and create versions
+		the same way you version application code
+	use the description code to build other application instances
+		built the same way every time based on the code
+Orchestration
+	automation is the key to cloud computing
+		services appear and disappear automatically or at the push of a button
+	entire applciation instances can be instantly provisioned
+		all servers, networks, switches, firewalls, and policies
+	instances can move around the world as needed
+	the security policies should be part of the orchestration
+		as applications are provisioned-------- the proper security is automatically included
+
+Connecting to the cloud
+	VPN
+		sit-to-site virtual private network
+		encrypt through the Internet
+	Virtual Private Cloout Internet Gateway
+		connects users to the internet
+	VPC Endpoint
+		direct connection between cloud provider networks
+
+VM Sprawl avoidance
+	VM are sprawled everywhere 
+		dont know what vms go to what applications
+
+VM escape protection
+	the vm is self-contained
+vm
 
 
 
