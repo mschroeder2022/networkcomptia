@@ -1,0 +1,564 @@
+*CIA TRIAD 4.1*
+CONFIDENTIALITY	AVAILABILITY	INTEGRITY
+fundamentals of security
+
+confidentiality- prevent disclosure of info to unauthorized individuals or systems
+	encryption-encode messages
+	access controls- restrict access to a resource
+	steganography- conceal information within another piece of information
+
+integrity- messages cant be modified without detection
+	data is stored and transferred as intended
+	Hashing- map data of arbitrary length to data of a fixed length
+	digital signature- mathematical scheme to verify the integrity of data
+	certificaties- combine with a digital signature to verify an individual
+	non-repudiation- provides proof of integrity, can be asserted to be genuine
+
+availability- systems and networks must be up and running
+	information is accessible to authorized users
+	redundancy- always available services
+	fault tolerance- system runs even during a failure
+	patching-stability; close security holes
+
+*SECURITY CONCEPTS*
+
+vulnerability- weakness in a system
+types:
+data injection 
+broken authentication process
+sensitive data exposure
+security misconfig
+
+Zero-day attacks
+	many applications have vulnerabilities
+	Someone is working hard to find the next big vulnerability
+has not been detected or published
+	exploits are increasingly common 
+
+CVE=common vulnerabilities and exposure
+
+Threat-vulnerability can be exploited by a threat
+	intential or accidental
+	a resource can have a vulnerability
+		exploitation through a threat agent
+			threat agent takes a threat action to exploit the vulnerability
+Insider threats
+
+Vulnerability databases
+CVE
+	community managed list of vulnerability
+NVD= US National Vulnerability Database
+	summary of CVEs
+		more detail than CVE
+Exploits
+	take advantage of a vulnerability
+
+Least privilege- rights and permissions should be set to the bare minimum
+		all user accounts must be limited
+			applications should run with minimal privileges
+
+RBAC= role- based access control
+	roles in an organization should correlate with adequate amount of privileges
+	admins provide access based on the role of the use
+
+Windows
+	Groups to provide role-based access control
+
+Zero trust- holistic approach to have security coverage across everything 
+	many networks are relatively open on the inside
+	Everything must be verified
+		multifactor authentication,
+		encryption
+		system permissions, 
+		additional firewalls
+		monitoring and analytics
+	
+
+*Defense in Depth*
+layering the defense
+	physical controls
+	technical controls
+	administrative controls
+
+DMZ or Screened subnet
+	layer  of security between internet and server
+	public access to public resources
+
+Seperation of duties
+	Split knowledge
+	dual control
+		two people must be present to unlock or open or etc
+
+Network Access Control = NAC
+	portbased
+	you dont get access until you authenticate
+	physical interfaces
+EAP=extensible authentication protocol
+	perform authentication
+RADIUS= remote authentication dial in user service
+	remote backend database for communication
+
+Administrative enable/ disable
+Duplicate MAC address checking
+	stop the spoofers
+
+Honey pots
+	create a virtual world to explore
+		Kippo
+		google hack honeypot
+		wordpot
+	constant battle to discern what is real and what is fake
+
+
+*AUTHENTICAITON METHODS*
+Local authentication
+	authentication credentials are stored on the lodcal device
+	very manual process
+		password change on all devices manually
+	doesnt rely on a third-party authentication server
+		
+Multifactor athentication=MFA
+	you are 
+	you have 
+	you know
+	you do
+can be expensice
+	sepearate hardware tokens
+	specialized scanning equipment
+ca be inexpensive
+	free smartphone applications
+
+RADIUS= remote authentication dial-in user service
+often uses ethernet
+one of the more common AAA protocols
+centralize authentication for users
+	routers, swtiches, firewalls
+	server authentication
+	remote VPN access
+	802.1X network access
+RADIUS services available on almost any server operating system	
+
+TACACS=terminal access controller accesss-control system
+	remote authentication protocol
+
+TACACS+ 1993
+	more authentication requests and response codes
+
+LDAP= Lightweight Directory Access Protocol
+protocol for reading and writing directories over an IP network
+	an organized set of record, like a phone directory
+X.500 specification was written by ITU=international telecommunications union
+DAP ran on the OSI protocol stack
+LDAP is lightweight protocol used to query and update an x.500 directory
+
+Kerberos
+network authentication protocol
+	authenticate once, trusted by the system
+	no need to re-authenticate
+	mutual authentication- the client and the server
+SSO with Kerbos
+	authenticate one time 
+		lots of backend ticketing
+		cryptographic tickets
+
+vpn concentrator use radius servers
+cisco devices use TACACS+
+Kerberos or LDAP use in a microsoft network
+
+IEEE 802.1X
+protbased NAC
+auathentication needed for access to network
+
+EAP=extensible authentication protocol
+authentication framework
+	many different ways to authenticate based on RFC standards
+	manufacturers can build their own EAP methods
+	integrates with 802.1X
+
+*RISK MANAGEMENT*
+
+Vulnerability assessment
+	minimally invasive
+	Vulnerability scanners
+
+Posture assessment
+	health check on the device before it is connected to the network
+	proper configurations are checked
+If the device fails the health check......
+Quartantine network, notify administrators
+
+Risk Assesstment
+identify assets that could be affected by an attack 
+identify threats
+determine the risk level
+process assessment
+
+SIEM=security information and event management 
+	logging of security events and info
+security alerts
+log aggregation and long-term storage
+data correlation
+forensic analysis
+
+
+*DENIAL OF SERVICE 4.2*
+
+FRIENDLY DoS
+networ DoS
+	layer 2 loop without STP
+Bandwidth DoS
+	downloading multi-gigabyte linuz distributions over a DSL line
+
+botnets= a group of bots working together 
+	DDoS
+	relay spam, proxy network traffic distributed computing tasks
+
+On-path network attack
+
+*VLAN HOPPING*
+
+defin differnt VLANs
+	organizational, network engineering, security
+	good security practice
+criminals can "hop" to another VLAN
+	Switch spoofing
+		some switch support automatic configuration
+
+thers no authentication required
+	pretend to be a switch
+		send trunk negotiation
+	now you have a trunk link to a switch 
+	
+Switch administrators should disable trunk negotiation
+	administratively configure trunk interfaces and device/access interfaces
+
+Double tagging
+	craft a packet that includes two VLAN tags
+		take advantage of the "native" VLAN configuration
+	the first native VLAN tag is removed by the first switch
+		the second "fake" tag is now visible to the second switch
+		packet is forwarded to the target
+	this is a one-way trip
+		responses dont have a way back to the source host
+		good for DoS
+	 dont put any devices on the native VLAN
+		change the native VLAN ID
+		force tagging of the native VLAN
+
+*SPOOFING*
+pretend to be something you arent
+fake web server, dns servver
+on path attack
+	sit in the middle of the convo
+
+ARP poisonoing = IP spoofing
+
+IP address spoofing
+take someone else's IP address
+	can be legitimate
+		arp poisoning
+		dns amplificaiton
+	easier to identify than MAC address spoofing
+MAC spoofing
+ your Ethernet device has a MAC address
+	changing the MAC address can be legitimate
+		internet provider expects a certain MAC address
+			certain applications require a particular MAC address
+	it might not be legitimate
+		circumvent MAC-based ACLs
+		fake-out a wireless address filter
+
+*ROGUE SERVICES*
+Rogue DHCP server
+-IP addresses assigned by a non-authorized server
+	no baseline security in DHCP
+client is assigned an invalid or duplicate address
+	intermittent connectivity, no connectivity
+disable rogue DHCP communication
+	enable DHCP snooping on your switch 
+	authorized DHCP servers in Active Directory
+
+Disable the rogue
+	renew the IP leases
+
+Rogue access points
+	unauthorized wireless access point
+	
+Malicious Wireless
+configure an access point to look like an existing network
+-same SSID and security settings/ captive portal
+
+*MALWARE AND RANSONWARE*
+Malware= malicious software
+types:
+virus
+ransomware
+worm
+torjan horse
+rootkit
+adware/spyware
+botnet
+
+*PASSWORD ATTACKS*
+plaintext/ unencrypted passwords
+	"in the clear"
+
+Hashing a password
+hases represent data as a fixed=length streing of text
+	fingerprint
+
+Brute force attack
+	try every possible password combination
+online
+	keep trying the login process
+offline
+	obatin the list of users and hashes
+disctionary attack
+	common words
+
+
+*DEAUTHENTICAITON*
+
+WIRE DEAUTHENTICATION
+a significant wireless DDoS attack
+802.11 management frames
+	802.11 wireless includes a number of management frames
+		makes everything work
+			access point, manage QoS
+802.11w stopped these attacks
+
+
+*SOCIAL ENGINEERING*
+Phishing
+	social engineering with a touch of spoofing
+
+Tailgating and piggybacking 
+tailgating uses and authorized person to gain unauthorized acces to a  building
+piggybacking follows the same process, but the authorized person is giving consent
+
+Shoulder surfing
+
+*NETWORK HARDENING 4.3*
+Secure SNMP= simple network management protocol
+	monitors and control servers, switches, router, firewalls, and other device
+Different verssions throught the years
+SNMPv3
+	version 3 addded encrypted communication 
+
+Router Advertisement (RA) guard
+IPv6 includes periodic router announcements
+	automatic config for network devices
+a rogue device could pretend to be a router
+switches can validate the RA messages
+	admins define policies to check the RA messages
+
+Port security
+prevent unauthorized users from connecting to a switch interface
+based on the source MAC address
+Each port has its own config
+
+port security operation
+1. configure a maxium number of source MAC addresses on an interface
+2. the switch monitors the number of unique MAC addresses
+3. one you exceed the maxium, port security activates
+
+Dynamic ARP inspection
+relies on DHCP snooping for intel
+	knows all IP address info and the connecting MAC address
+intercept all ARP requests and responses
+	invalid IP to MAC address bindings are dropped
+
+Control plane policing
+control plane manages the device
+data plane performs the operational proccess
+	protect again DDoS or reconnaisssance
+	traffic priority
+		block unneccessary control plane traffic types (non-ssh)
+		rate limit the control plane traffic flows
+
+Private VLANs
+Port isolation
+	restrict access between interfaces
+	even when theyre in the same VLAN
+
+Disable unused interfaces
+NAC= network access control
+	802.11x controls
+
+disable unnecessary ports and service
+	control access with a firewall
+
+DHCP snooping
+IP tracking on a layer 2 switch
+	the switch is a DHCP firewall
+	switch watches for DHCP conversations
+
+Role based access
+many devices allow the config of specific roles
+
+ACLs= access control lists
+	allow or not traffic based on tuples
+		group of categories
+firewall rules
+	Rule num,----->remote IP, remote port, local port, protocol------> action
+	implicit deny- deny entry 
+
+
+*WIRELESS SECURITY 4.3*
+MAC filtering
+media access control= hardware address
+	find mac through wiress LAN analysis
+
+Antenna placement
+
+Wireless isolation
+	wireless client isolation
+		public area
+	guest network isolation
+
+EAP=extensible authentication protocol
+	authentication framework
+	RFC standards
+	5 types used by WPA2/3
+
+geofencing
+
+
+captive portal
+	authentication to a network
+	redirects your web access to a captive portal page
+	once proper authentication is provided, the web session continues
+
+*REMOTE ACCESS 4.4*
+VPN concentrator
+	encryption/decryption access device
+
+Clientless VPNs
+HTML5
+includes comprehensive API support
+	application programming interface
+	web cryptography API
+create a VPN tunnel without a separate VPN application
+	
+split tunneling
+	vpn and not 
+
+remote desktop connection
+	RDP- remote desktop protocol
+		microsoft
+
+VNC=virtual networking computing
+	remote frame buffer (RFB) protocol
+	clients for many operating system
+	many are open source
+
+Remote desktop gateway
+	combine a VPN with Microsoft Remote Desktop
+		securely access RDP servers from the outside
+	client connects to the remote desktop gateway
+		SSL tunnel
+		many authentication options
+	Remote Desktop Gateway connects internally to RDP servers over tcp/ 3389
+		gateway is the proxy between the ssl tunn and the remote desktop protocol
+
+SSH= secure shell
+encrypted concole communication - tcp/22
+looks and acts the same as Telnet - tcp/23
+
+cloud-hosted virtual desktops
+	a virtual desktop infrastructure (VDI) in the cloud
+		users connect to a pre-built
+	access from almost any OS 
+	Virtual NIC
+		all communication in the desktop are loval to the virtual desktop
+		no sensitive information sent from the local device
+
+out- of - band managment
+
+*PHYSICAL SECURITY  4.5*
+
+Video Surveillance
+CCTV= closed circuit television
+
+asset tracking tags
+	barcode, RFID, visible tracking number
+
+tamper detection
+
+Access control hardware
+Security hardware
+Gates, locks, camera
+often networked
+
+badge readers
+biometrics
+
+Acces control vestibules
+	doors automatically lock
+	locking cabinets
+
+	smart lockers
+
+media sanatation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

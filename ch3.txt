@@ -1,0 +1,581 @@
+*PERFORMANCE METRICS 3.1*\
+Device Performance
+	temperature
+		internal sensors,
+		can be an early warning of excessive utilization or hardware issues
+CPU usage
+	measures performance of the processor/s
+	overall performance is usually based on these values
+Memory
+	the operational resource
+	running out of memory is usually a fatal event
+
+Bandwidth monitors
+	the fundamental network statistic
+		amount of network use over time
+	Gathering the metric
+		SNMP, NetFlow, sFlow, IPFIX protocol analysis, software agent
+	Identify fundamental issues
+		nothing works properly if bandwidth is highly utilized
+
+Latency
+a delay between the request and the response
+	waiting time
+come latency is expected and normal
+examine the reponse times at every step along the way
+	multiple measurement tools
+packet captures can provide detailed analysis
+	microsecond granularity
+	get captures from both sides
+
+Jitter
+most real-time media is sensitive to delay
+	data should arrive at regular intervals
+	voice comms, live video
+	no retransmission
+jitter is the time between frames
+	excessive jitter can cause you to miss information 
+		choppy voice calls
+
+Monitoring the interface
+	often your first sign of trouble
+	sometimes indicate a bigger issue
+	view in the operating system
+		interface details
+Monitor with SNMP
+	remote monitoring of all devices
+	most metrics are in MIB-II
+	proprietary MIB may be available
+
+Interface monitoring
+	link status
+		link up or down
+	Error rate
+		problems with the signal
+		CRC error, runt, giant
+	Utilization 
+		per-interface network usage
+		run bandwidth test to view throughput
+	discards, packet dropps
+		no errors in the packet, but system could not process
+	interface resets
+		packets are queued, but arent sent
+		connection is good, but line protocols arent talking
+		reset and hope for the best
+	Speed and duplex
+		these should match on both sides
+		auto speed and auto duplex isnt always the best option
+		check for expected throughput and late collisions
+		
+
+*SNMP*
+Simple Network Management Protocol
+	centrailized database
+		a database of data (MIB)- management information base
+		the database contain OIDs- Object Identifiers
+		poll devices udp/161
+SNMP v1
+	structured tables, in the clear
+SNMP v2
+	data type enhancements, bulk transfers, 
+	in the clear
+SNMP v3
+	message integrity, authentication, encryption
+
+SNMP OIDs
+	object identifier- referenced by name or number
+
+SNMP traps
+	most SNMP operations expect a poll
+		devices then respond to the SNMP request
+		this requires constant polling
+	traps can be configured on the monitored device
+		communicates over udp/162
+	set a threshold for alerts
+		if the num of CRC erros increases by 5, send a trap
+		monitoring station can react immediately
+
+*LOGS AND MONITORING*
+Traffic logs
+	view traffic information from routers, switches, firewalls, etc
+	identify traffic flows and summaries
+	every flow from every device
+	important historical information
+		monitoring, post event analysis
+Active Directory Infrastructure
+Audit logs
+	more specific than general traffic logs
+
+ Syslog
+	standard for message logging
+		diverse systems create a consolidated log
+	usually a central logging receiver
+		integrated into the SIEM= security information and event manager
+	each log entry is labeled
+		facility code (program that created the log) and severity level
+
+Security levels
+	not all alerts have the same priority
+	alerts can be used as a filter
+
+Interface errors
+	runts
+		frames that are less than 64 bytes
+		may result in a collisioon
+	giants
+		frames that are more than 1518 bytes
+	CRC error
+		failed the frame check sequence
+		may indicate a bad cable or interface
+	Encapsulation error
+		Inconsistent configurations between switches- ISL or 802.1Q
+
+Enviromental sensors
+	temperature
+		devices need constant cooling
+	Humidity level
+		condensation
+		low humidity promotes static discharges
+	Electrical
+		Device and circuit load
+	Flooding
+		water and electrical devices not good
+
+NetFlow
+	gather traffic statistics from all traffic flows
+		shared comms between devices
+	standard collection method
+		many products and options
+	probe and collector
+		probes watches network comms
+		summary records are sent to the collector
+			usually a separrate reporting app
+				uses collector info	
+
+*PLANS AND PROCEDURES 3.2*
+change management- how to make the change
+	common risks in the enterprise
+		updates frequently
+	clear policies
+		frequency
+		duration, installation process, fallback procedures
+			hard to implement
+security incidents
+	malware then communicates with external servers
+	DDoS
+		botnet attack
+	Confidential information stolen
+		ransom
+	installs peer-to-peer software and allows external access to internal servers
+
+NIST SP800-61
+national institue of standards and technology
+	SP800-61- computer security incident handling guide
+incident response lifecycle
+	preparation
+	detection and analysis
+	containment, eradication, and recovery
+	post-incident activity
+Disaster recovery plan
+	many types
+	part of business continuity planning
+	comprehensive plan
+		data recovery method
+		recovery location
+		application restoration
+		IT team and employee availability
+COOP= continuity of operations planning
+	not everything goes according to plan
+		outside of the norm disruptions
+	alternatives
+		manual transactions
+		paper receipts
+		phone calls for transaction approvals
+	must be documented and tested before a problem occurs
+
+System life cycle
+	managing asset disposal
+	disposal become a legal issue
+		some info must not be destroyed
+		consider offsite storage
+			no recycling
+
+Standard operating procedures
+organization have differen business objectives
+	processes and procedures
+Operational procedures
+	downtime notification
+	facilities issues
+Software upgrades
+	change control
+	testing
+Documentation is key to communicate policies
+
+Common agreements
+	SLA-service level agreement
+		minimum terms for services provides
+		uptime, response time agreement, etc
+		commonly used between customers and service providers
+	Memorandum of Understand= MOU
+		both sides agree on the content of the memorandum
+		usually includes statements of confidentialty
+		informal letter of intent, NOT signed
+
+NDA=Non- disclosure agreement
+	Confidentiality agreement between parties
+	Protects confidential information
+		trade secrets
+		business activities
+	unilateral or bilateral (or multilateral)
+		one-way NDA or mutual NDA
+	formal contract
+		signatures are usually required
+
+*SECURITY POLICIES*
+Password Policy
+	make passwords strong
+	increase password entropy
+
+AUP= acceptable use policies
+	detailed documentation
+		rules of behavior
+			covers many topics
+used by an organization to limit legal liability
+
+BYOD- bring your own device/ technology
+	needs to meet the company's requirements
+	difficult to secure
+		sold or traded in device
+MDM-mobile device manager
+	
+Remote access policies
+policies for everyone
+	third parties included
+specific technical requirements
+	encrypted connection, 
+	confidential credentials, 
+	use of network, 
+	hardware and software requirements
+
+On-boarding- new person into the organization
+IT agreements need to be signed
+	may be part of the employee handbook or a separate AUP
+create accounts
+	associate the user with the proper groups and departments
+provide require IT hardware
+	preconfigure
+
+Off-boarding
+-pre-planned
+	hardware
+	data
+	account info is usually deactivated
+		not always deleted
+
+DLP= data loss prevention 
+detailed policies needed to define what is allowed
+	sensitivity level
+	data encryption needed
+DLP solution can watch and alert on policy violations
+	often requires multiple solutions in different places
+
+Security policy
+	Documentation of the organization's processes and procedures regarding IT security
+	almost everything in this module would be included
+		remote access, building security, incident response, etc
+	constantly changing
+
+*NETWORK DOCUMENTATION 3.2*
+FLOOR PLANS
+	overlay the wired and wireless network with the existing architectural layout
+	can be useful for patch panel labels
+
+Distribution frames
+	passive cable termination
+	usually mounted on the wall or flat surface
+	all transport media
+		copper, fiber, voice and data
+MDF=Main Distribution Frame
+	central point of the network
+	termination point for WAN links
+		test in both directions
+	often the data center
+IDF=Itermediate Distribution Frame
+	extends the MDF
+	connects the users to the network
+
+Logical network maps
+	Specialized software
+		visio, omnigraffle
+	High level views
+		WAN layout, application flows
+	Useful for planning and collaboration
+
+Managing your cables
+ANSI/TIA/EIA 606
+	administration standard for the telecommunications infrastructure of commercial buildings
+	presentation of info
+	pathway, space, grouding
+		identifiers, labeling
+Site Surveys
+	Determine existing wireless landscape
+	Identify existing access points
+	Work around existing frequencies
+	plan for ongoing site sureveys
+	heat maps
+
+Audit and assessment report
+	Validate existing security policies
+	internal audits
+	external audits
+
+Baseline
+	Broadly defined	
+	point of reference
+
+
+*HIGH AVAILABILITY 3.3*
+Fault tolerance
+	maintain uptime in the case of a failure
+	fault tolerance adds complexity
+	single device fault tolerance
+		RAID
+		redundant power supplies
+		redundant NICs
+	Multiple device fault tolerance
+		server farms with load balancing multiple network paths
+
+REdundancy and fault tolerance
+	redundant hardware components
+	RAID= redundant array of independent disks
+	UPS= uninterruptible power supplies
+	Clustering
+		a logical collective of servers
+	Load Balancing
+		shared service load across components
+
+High availability
+	redundancy doesnt always mean always available
+	may incude many different components working together
+		watch for single points of failure
+	Higher availability almost always means higher costs
+
+NIC teaming
+load balancing / fail over (LBFO)
+	aggregate bandwidth, redundant paths
+	becomes more important in the virtual world
+multiple network adapters 
+	looks like a single adapter
+	integrate with switches
+NICs talk to each other
+	usually multicast instead of broadcast
+	fails over when a NIC doesnt respond
+
+*INFRASTRUCTURE SUPPORT*
+UPS=uninterruptible power supply
+	Types
+		offilne/standby ups
+		line-interactive UPS
+		on-line/ double-conversion UPS
+	features
+		auto shutdown, battery capacity
+		outlets
+
+PDU=power distribution units
+provide multiple power outlets
+includes monitoring and control
+
+Generators
+	long-term power backup 
+		fuel storage required
+	power an entire building
+		use battery UPS while the generator starting up
+	
+HVAC=heating, ventilation, and air conditioning
+	must integrate into the fire system
+	PC manages equipment
+Fire suppression
+	data center fire safety
+	common to use inert gases and chemical agents
+	integrated into HVAC system
+		monitor carbon monoxide
+		enable/disable air handlers
+
+*RECOVERY SITES*
+site resiliency
+	recovery site is prepped
+		data is synced
+	a disaster is called
+	problem is addressed
+	revert back to the primary location
+		documentation
+
+Cold site
+	no hardware
+	no data
+	no people
+	
+Hot site
+	an exact replica
+	stocked with hardware
+	apploications and software are constantly updated
+		automated replication
+	flip a switch and everything moves
+
+Warm site
+	hybrid between cool and hott
+	big room with rack space
+		bring the hardware
+	hardware is ready and waiting
+		bring the software and data
+
+Cloud site
+	use an established cloud provider
+		enough resources for the recovery process
+	no separate facility to manage
+		online config
+	cost can be flat fee or based on use
+	the data and applications still need to be moved
+		large data storage requirements may create a  challenge
+
+*NETWORK REDUNDANCY*
+Active-passive
+	two devices are installed and configured
+		only works at a time
+			constant comms between the two devices
+	if one device fails, the other takes over
+	configuration and real-time session information is constantly synchronized
+		the failover might occur at any time
+
+Active-active
+	two devices used at the same time
+	More complex to design and operate
+		data can flow in many different directions
+		challenging to manage the flows
+		monitoring and controlling data requires a very good understanding of the underlying infrastructure
+
+Diverse paths
+	Create mutiple paths
+		more than one internet service provider (ISP)
+	may need additional hardware and engineering
+		advanced dynamic routing protocols
+		failover processes
+		local device configurations
+	great for redundancy
+		no reliance on a single provider
+
+High availability protocols
+	FHRP= first hop redundancy protocol]
+		device is configured with a single default gateway
+			need a way to provide availability if the default gateway fails
+
+	VRRP= virtual router redundancy protocol
+		the default router isnt real
+		devices use a virtual IP for the default gateway
+			if one router disapperas another one takes its place
+				data continue to flow
+
+
+*AVAILABILITY CONCEPTS*
+Recovery
+RTO=recover time objective
+	get up and running quickly 
+	get back to a particular service level
+RP= recovery point objective
+	how much data lost is acceptable
+		how far back does data go when the systems are brought back online
+MTTR= mean time to repair
+	time required to fix the issue
+MTBF=mean time between failures
+	predict the time between outages
+
+Network device backup and restore
+	every device has a configuration
+		most devices allow the configuration to be downloaded and uploaded
+		configurations may be specific to a version of operation code or firmware
+			firmware backups?
+	revert to a previous state
+		use backup to return to a previous configuration data and time
+		might require a firmware or version downgrade
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

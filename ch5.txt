@@ -1,0 +1,265 @@
+*NETWORK TROUBLESHOOTING METHODOLOGY 5.1*
+
+Identify the problem
+	gather information
+	question users
+	identify
+	symptoms
+	determine if anything has changed
+	approach multiple problems individually 
+
+Establish a theory
+	start with the obvious
+	consider everything
+	divide and conquer
+	
+Test the thoery
+	confirm the theory
+	dont work theory
+		re-establish new theory or escalata
+		
+create a plan of action
+implement the solution
+verify full system functionality
+	implement precent measures
+Document finds
+	update the knowledge base
+
+Troubleshooting a network
+	identify the problem
+	establish a theory of probable cause
+	Test the theory to determine cause
+	establish a plan of action to resolve the problem and identify potential effects
+	implement the solution or escalate as necessary
+	verify fully system functionality and implement precentative measures
+	document findings, actions and outcomes
+
+*CABLE CONNECTIVITY 5.2*
+unshielded and shielded
+U= unshielded
+s= braided shielding
+f= foil shielding
+
+(over cable) / (individual pairs) TP
+
+
+plenum-rated cable
+	traditional cable jacket
+		PVC
+	fire-rated cable jacket
+		FEP
+		PVC
+	plenum-rated cable may not be as flexible
+	worst-case planning
+		used in plenum and risers
+		important concers for an structure
+serial consol cables
+	D-subminiature or D-sub
+		letter refers to the connector size
+	commononly used for RS-232
+		recommended standard 232
+		an industry standard since 1969
+	serial communications standard
+		built for modem communication
+		used for modems, printers, mice, networking
+	now used as a configuration port
+
+POE=power over ethernet
+	power provided on an ethernet cable
+	power provided at the switch
+		built in power= endspans
+		inline power injector= midspans
+	power modes
+	A= common- mode data pair power
+	B= power on the spare pair
+	4-pair- power on all four data pair
+
+POE: IEEE 802.3af-2003
+	15.4 watts DC power, 350 mA max current
+POE+: IEEE 802.3at-2009
+	25.5 watts DC power, 600 mA max current
+POE++: IEE 802.3bt-2018
+	51 W (type 3) 600mA max current
+	71.3 W (type 4,) 960 mA max current
+	POE with 10GBASE-T
+
+*WIRED NETWORK TROUBLESHOOTING*
+
+Attenuation
+	gradual signal strength diminishes over distance
+	loss of signal internsity as signal moves through a medium
+Decibels (dB)
+Signal strength ratio mesurements
+3dB= 2x the signal
+10dB=10X
+20dB=100X
+30dB= 1000x the signal
+
+EMI=electromagnetic interference
+	cable handling
+
+Bad ports
+Interface errors
+Verify configurations
+	Speed, duplex, VLAN, etc.
+Verify two-way traffic
+	end-to end connectivity
+
+Interface configuration
+	auto vs. manual configuration
+	light status
+	speeds
+	duplex
+		if mismatched, speed will suffer
+		increase in late collisions
+short circuit
+	two connections are touching 
+	wires inside of a cable or connection
+open circuits
+	break in the connection
+complete interruption
+	can be intermittent
+
+Time domain frelector
+	tool used to tell where the connection is loss
+
+incorrect tranceivers
+	have to match the fiber
+	single mode transceiver connects to single mode fiber
+tranceiver needs to match the wavelength
+	use the correct transceivers and optical fiber
+	signal loss
+		dropped frames, missing frames
+
+*HARDWARE TOOLS*
+Cable crimpers = pinch the connector to the wire
+Punch down tools= punch a wire into a wiring block
+tone generator and probe= used to find a wire
+
+
+
+
+
+
+*SOFTWARE TOOLS 5.3*
+Wireless packet analysis
+
+Protocol analyzer= wireshark
+
+Speed test sites
+bandwitdth testing
+
+iPerf
+-performance monitoring and speed testing
+-two computers needed
+
+IP and port scanners
+	range of IP addresses  
+
+NetFlow
+	father traffic statistics from all traffic flows
+	uses probe and collector
+		probe watches network communication
+		summary reccords are sent to the collector
+
+TFTP server
+trivial file transfer protocol
+	bare minimum file transfer protocol
+your device is the TFTP server
+	the switch/firewall/router is the TFTP client
+
+Terminal emulator
+SSH
+	encrypted terminal communication
+	replaces telnet and ftp
+	
+
+
+*COMMAND LINE TOOLS*
+ping- test reachability
+ipconfig/ifconfig/ip address
+
+nslookup and dig
+lookup info from DNS servers
+	dig=domain information groper
+		adv dns information
+
+traceroute
+-determine the route a packet takes to a destination
+-tracert or traceroute
+
+ARP=address resolution protocol
+determine a MAC address based on an IP address
+
+netstat
+network statistics
+-a	show all active connections
+-n 	just ip addresses
+-b	shows binaries
+
+hostname
+view the FQDN and IP address of the device
+
+route
+view device routing table
+
+Telnet-telecommunication network
+tcp/23
+login to devices remotely
+	in the clear communicaiton
+
+tcpdump
+	capture packets from the command line
+
+nmap=network mapper
+port scanner
+operating system scan
+service scan
+
+
+
+*WIRELESS TROUBLESHOOTING 5.4*
+
+
+
+
+
+
+*COMMON WIRELESS ISSUES*
+
+
+
+
+
+
+
+
+*GENERAL NETWORK TROUBLESHOOTING*
+
+
+
+
+
+
+
+*COMMON NETWORK ISSUES PT 1 & 2*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

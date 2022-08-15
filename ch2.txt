@@ -1,0 +1,768 @@
+*2.1 NETWORKED DEVICES*
+
+OSI LAYERS
+Application
+Presentation
+Session
+Transport
+Network
+Data Link
+Physical
+
+
+VoIP phone= voice over internet protocol
+	instead of analog phone line or the POTS = Plain Old Telephone Service
+	each device is a computer
+		separate boot processs and network connection
+		individual configurations
+		different capabilities and functionalities
+
+Print/AIO(all in one)
+	printer scanner copier fax
+
+	connectivity
+		ethernet
+		usb
+		802.11
+		bluetooth/infrared
+
+Access control devices
+	Card reader
+		access with a smart card
+	Biometric authentication
+		fingerprint
+		retina
+		voiceprint
+			stores a mathematical representation of your biometric
+			ethernet connected
+				IP address configured static or DHCP
+
+Cameras
+	CCTV= closed circuit television
+	features
+		motion recognition
+		object detection can identify faces and license plates
+		many different camera networked together and recorded over time
+
+	Surveillance systems
+		video/audio surveillance
+			IP addressable
+				multicast video
+				HD
+
+HVAC
+heating, ventilation, and air conditionoing
+	thermodynamics, fluid mechanics and heat transfer
+	complex science
+	PC management equipment
+		makes cooling and heating decisions for workspaces and data centers
+	Netowrk connectivity is critical
+	
+IOT devices
+applicances
+	refrigerators
+smart devices
+	vocie commands 
+air control
+	Thermostates,temperature control
+access
+	doorbell, garages
+segmented network
+	limi and security breaches
+
+
+SCADA / ICS
+Supervisory Control and Data Acquisition System
+	large scale, multi-site ICS = industrial control systems
+pc manages equipment
+	power generation, refining, manufacturing equipment
+	facilities, industrial, energy, logistics
+Distributed control systems
+	real-time information
+	system control
+Requires extensive segmentation
+	no accesss from the outside\
+
+
+*NETWORKING DEVICES*
+Hub
+	multi-port repeater
+		traffic going inone port is repeated to every other port
+		OSI layer 1
+	everything is half-duplex
+	becomes less efficient as network traffic increases
+	10 mb to 100 mb
+	not commonoly used
+
+Bridge
+	a switch with two to four ports
+		makes forwarding decisions in software
+	connects different physical networks
+		can connect different topologies
+		gets around pysical network size limitations / collisions
+	OSI layer 2 device
+		distributes traffic based on MAC address
+	an example of a modern bridge is a wireless aaccess point
+		bridges wired ethernet to wireless
+
+Switch
+	Bridging done in hardware
+		application-specific integrated circuit (ASIC)
+
+	OSI layer 2
+		forwards traffic based on data link address
+	Many ports and features
+		foundation of enterprise network
+		may provide power over Ethernet = PoE
+	Multilayer switch
+		includes layer 3 (routing) functionality
+		"switch/router"
+
+Router
+-traffic between IP subnets
+	OSI layer 3
+	routers inside of switches sometimes called "layer 3 switches"
+	layer 2 = switch
+	layer 3 = router
+	often connects diverse network types
+		lan, WAN, copper, fiber
+
+Access point
+-not a wireless router
+	router/ access point
+
+a access point is a bridge
+	extends the wired network onto the wireless network
+	OSI layer 2 device
+
+Cable Modem
+	Broadband
+		transmission across multiple frequencies
+		different traffic types
+	data on the cable network
+		DOCSIS= data over cable service interface specification
+	high speed networking
+		4Mbits/s through 250 Mbits/s are common
+		gigabit speeds are possible
+	multiple services
+		data, voice, video
+
+DSL modem
+	ADSL (Asymmetric Digital Subscriber Line)
+		use telephone lines
+	download speed is faster than the upload speed (asymmetric)
+		10000 ft limit
+		52 Mbit/s downstrea / 16 Mbit/s upstream are common
+		Faster speeds may be possible if closer to the CO
+
+Repeater
+	receive signal, regenerate, resend
+		no forwarding decisions to make
+	common use
+		boost copper or fiber connections
+		convert one network media to another
+		extend wireless network reach
+
+Converting Media
+OSI layer 1
+	physical layer signal conversion
+extend a copper wire over a long distance
+	convert it to fiber, and back again
+almost always powered
+	especially fiber to copper
+
+
+*ADVANCED NETWORKING DEVICES*
+Layer 3 capable switch
+	a switch (layer 2) and router (layer3 ) in the same device
+		configurations for each side
+	network changes must be done to each access point
+
+Wireless LAN controllers
+	Centralized management of access points
+	deploy new access points
+	performance and security monitoring
+	configure and deploy changes to all sites
+	report on access point use
+	usually a proprietary systems
+		wireless controller is paired with the same brand of access point
+
+Load Balancer
+	configurablle load
+		manage across servers
+	tcp offload
+		protocol overhead
+	ssl offload
+		encryption/decryption
+	caching
+		fast reponse
+	prioritization
+		QoS
+	Content switching
+		application centric building
+
+IDS and IPS
+	Intrusion Detection System
+	Intrusion Prevention System
+		watch network traffic
+	Intrusions
+		Exploits against operating systems, applications, etc
+		buffer overflows, cross-site scripting, other vulnerabilities
+	detection vs prevention
+		detection- alarm or alert or logging
+
+Proxies
+	sits between the users and the external network
+	receives the user requests and sends the request on the begalf (the proxy)
+	Useful for caching information, access contol, URL Filtering, content scanning
+	applications may need to know how to use the proxy (explicit)
+	some proxies are invisible (transparent)
+
+Application proxies
+	Most proxies in use are application proxies
+		the proxy understands the way the application works	
+	a proxy may only know one application
+		HTTP 
+	Many proxies are multipurpose proxies
+		HTTP, HTTPS, FTP, etc.
+
+VPN concentrator
+virtual private network
+	encrypted private data traversing a public network
+concentrator/ head-end
+	encryption/ decryption access device
+	often integrated into a firewall
+many deployement options
+	specialized cryptographic hardware
+	software-based options available
+used with client software
+	sometimes built into the OS
+
+VoIP technologies
+PBX= private branch exchange
+	"phone switch"
+	connects to phone provider network
+	analog telephone lines to each desk
+VoIP PBX
+	Integrate VoIP devices with a corporate phone switch
+Voice gateway
+	Convert between VoIP protocols and traditional PSTN(public switch telephone network) protocols
+	Often built-in to the VoIP PBX
+
+Network-based firewalls
+	filter traffic by port number or application
+		traditional vs. NGFW=next generation firewalls
+	encrypt traffic
+		VPN between sites
+	most firewalls can be layer 3 devices (routers)
+		often sits on the ingress/egress of the network
+		network address translation (NAT)
+		Dynamic routing
+
+
+*DYNAMIC ROUTING 2.2*
+Dynamic routing protocols
+	listen for subnet information from other routers
+		sent from router to router
+	provide subnet information to other routers
+	determine the best path based on the gathered information
+		every routing protocol has its own way of doing this
+	when network changes occur, update the available routes
+Distance-vector routing protocols
+	information passed between routers contains network details
+		smallest "hops" possible
+	usually automatic with little configuration
+	optimal for smaller networks
+		RIP= routing information protocol
+		EIGRP= enhanced interior gateway routing protocol
+ Link-state routing protocols
+	information passed between routers is related to the current connectivity
+	considers the speed of the link
+		faster speeds but might take more hops
+	very scalable
+		large networks
+	OSPF (Open Shortest Path First)
+		large scaleable routing protocol
+
+Hybrid routing protocols
+	BGP= border gateway protocol
+		determines route based on paths, network policies, or configured rule-sets
+
+*ROUTING TECHNOLOGY*
+routing tables
+	a list of directions for your packets
+		many routes to your destination
+		packets stop at every router and ask for directions
+
+routing table in routers, workstations, and other devices
+	every device needs directions
+
+THE HOP
+	a packet passes through a router
+	next hop	
+		destination address of the next gateway
+	a router doesn't need to know how to get everywhere
+		it just needs to know how to get out of here
+		a default route handles everything not specifically listed
+	a "time to live" IPv4, "hop limit" in IPv6
+		avoids a packet looping forever
+	configuring the next hop
+		every router needs to know where traffic should be sent
+			packets always ask for directions
+		a router with the incorrect next hop will result in a routing problem
+			data will go in the wrong direction
+			
+Default routes
+	a route when no other route matchess
+		"gateway of last resort"
+			0.0.0.0/0
+	can dramaticall simplify the routing process 
+		works in conjunction with all the other routing methods
+	Routing metrics
+		each protocol has its own way of calculating the best route
+		metric values are assigned by the routing protocol
+		Use metrics to choss between redundant links
+			choose the lowest metric
+
+Administrative distances
+	hybrid methods use different protocols that have different calculations
+		administrative distances
+		used by the router to determine which routing protocol has priority
+
+Managing network utilization
+	Many different devices
+	many different application
+		different priorities
+	voice is real-time
+	recorded streaming video has a buffer
+	database application is interactive
+
+Traffic shpaing/packet shaping
+	control by bandwidth usage or data rates
+	set important applications to have higher priorities than other apps
+	manage the quality of service (QOS)
+		routers, switches, firewalls, QOS devices
+
+*Introduction to Ethernet 2.3*
+SOHO LAN
+	home office
+THE MAC address
+media access control
+	physical address of a network adapter
+	unique to a device
+	48 bits/ 6 bytes long
+	displayed in hexadecimal
+Example:
+8c:2d:aa:								4b:98:a7
+Organizationall Unique Identifies (OUI)			Network Interface Controller-Specific
+the manufacturer									serial number
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Duplex- how to send data between two devices
+	one at a time
+	at the same time
+half duplex
+	a device cannot send and receive simultaneously
+	all the LAN hubs are half-duplex devices
+	switch interfaces can be configued as half-duplex
+		but usually only when connecting to other half-duplex device
+	hub
+'CSMA/CD
+	CS-carrier sense
+	MA-Multiple Access
+	CD-Collision Detect
+	
+	
+Full duplex
+Data can be sent and redceived at the same time
+	a properly configured switch interface will be set to full-duplex
+switches
+
+
+*NETWORK SWITCHING OVERVIEW*
+The switch
+	Forward or drop frames
+		based on the destination MAC address
+	Gather a constantly updating list of MAC addresses
+		builds the list based on the source MAC address of incoming traffic
+	Maintain a loop-free environment
+	Using Spanning Tree Protocol (STP)
+
+Address Resolution Protocol
+determine a MAC address based on an IP address
+	arp -a 
+
+NDP=neighbor discovery protocol
+no broadcasts
+	operates using multicast with ICMPv6
+neighbor MAC discovery
+	replaces the IPv4 ARP
+SLAAC= stateless address autoconfiguration
+	automatically configure an IP address without a DHCP server
+DAD=duplicate address dectection
+
+neighbor solicitation (NS)
+neighbor advertisement (NA)
+
+POE=power over ethernet
+	power provided on an ethernet cable
+	one wire for both network and electricity
+	power provided at the switch
+power modes
+	mode A- power on the data pairs
+	mode B-power on the spare pairs
+IEE802.3af-2003
+	OG standard
+	15.4 watts
+	350 mA
+POE+ IEE802.3 at 2009
+	25.5 watts
+	600 mA
+
+*VLANs and Truncking*
+virtual local area networks
+	a group of devices in the same broadcast domain
+	seperated logically instead of physically
+
+trunking- how multiple vlans can connect that contain different networks
+
+*SPANNING TREE PROTOCOL*
+Loop protection-loop free enviroment
+	conntect two switches to each other 
+		create a loop with two cables
+		they'll send traffic back and forth forever
+		theres no counting mechanism at the MAC layer
+STP port states
+	blocking port state
+		not forwarding to prevent a loop
+	listening
+		not forwarding and cleaning the MAC table
+	learning port states
+		not forwarding and adding to the MAC table
+	Forwarding
+		Data passes through and is fully operational 
+	Disabled
+		Administrator has turned off the port
+RSTP=rapid spanning tree potocol (802.1w)
+from 30 to 50 secs to 6 secs
+backwards-compatible
+	an update, not a wholesale change
+
+
+*INTEFACE CONFIGURATION*
+Basic interface configuration
+	Speed : 10/ 100/ 1000/ 10 gig
+	duplex: half/full
+	automatic and manual
+	needs to match on both sides of the wire
+
+IP address management
+	Layer 3 interfaces
+	VLAN interfaces
+	Management interfaces
+	IP address, subnet mask/ CIDR block, default gateway, DNS (optional)
+
+VLAN assignment 
+	each device port should be assigned a VLAN
+Trunking
+	connecting switches together
+	multiple VLANs in a single link
+Tagged and untagged VLANs
+	-non-tagged frame is on the default VLAN
+		also called the native VLAN
+	-trunk ports will tag the outgoing frames
+		and remove the tag on incoming frames
+LAG and mirroring
+	port bonding / link aggregation (LAG)
+		multiple interfaces acts like one big interface
+		LACP (link aggregation control protocol)
+			adds additional automation and management
+	port mirroring
+		copy traffic from one interface
+		used for packet captures, IDS
+		mirror traffic on the same switch
+		mirror traffic from one switch to another
+
+flow control method
+	IEE 802.3x
+	"pause frame"
+
+Port security
+	based on the source MAC address
+	each port has its own config
+port security operation
+	configure a maximum number of source MAC addresses on an interface
+	the switch monitor the number of unique MAC addresses
+	once you exceed the maxium, port security activates
+		default is to disable the interface
+
+*STRAIGHT-THROUGH AND CROSSOVER CABLES*
+connecting ethernet devices
+	patch cables
+
+Ethernet cross-over cable
+connect MDI to MDI
+connect MDI-X to MDI-x
+	auto MDI-X is on most modern ethernet devices
+		automaticall decides to cross-over
+workstation to switch= straight through
+router to switch= straight through
+switch to switch= crossover
+router to router = crossover
+workstation to workstation=crossover
+workstation to router= crossover
+
+
+*WIRELESS STANDARDS 2.4*
+WIRELESS Networking 802.11 standard
+	the wifi trademark
+		WiFi Alliance handles interoperability testing
+802.11A
+	5GHz range
+	54 mBits/s
+
+802.11B- smaller range
+	higher frequency is absorbed by objects in the way
+	2.4Ghz range
+	11 Mbits/s
+		more frequency conflict
+802.11g
+	2.4GHz range
+	54 Mbits/s
+	backwards compatible with 802.11b
+
+802.11n- WiFi 4
+	a,g, g update
+	5 or 2.4 GHz range
+	600 mBits/s
+		40MHz mode and 4 atennas
+	MIMO- multiple-input multiple-output
+		multiple transmit and receive antennas
+802.11ac- wifi5
+	updates to 802.11n
+	5GHz band
+		less crowded less interferance
+	increaces channel bonding
+		larger bandwidth usage
+	denser signaling modulation
+		faster data transfers
+	Eight MU-MIMO downlink streams
+		2x as many streams as 802.11n
+		about 7 gigabits per sec
+
+802.11ax (wi-fi 6)
+	operates at 5 GHz and or 2.4 GHz
+	1201 megabits per sec per channel
+		small increase in trhoughput
+		eight bi-directional MU-MIMO stream
+	Orthogonal frequency-division multiple access (OFDMA)
+		works similar to cellular communication
+		improves high-density installations
+
+*WIRELESS TECHNOLOGIES 2.4*
+802.11 technologies
+	frequency
+		2.4 or 5 ghz
+			sometimes both
+	channels
+		groups of frequencies, numbered by the IEEE
+		using non-overlapping channels would be optimal
+	Bandwidth
+		amount of frequency in use
+		20MHz, 40MHz, 80MHz, 160 MHz
+
+Independent basic service set (IBSS)
+Two devices communicate directly to each other using 802.11
+	no access point needed
+
+Ad hoc
+	created for a particular purpose without any previous planning
+	without access point
+temporary or lon-term communication
+	connect ot a device with an ad hoc connection
+	configure it with the access point settings and credentials
+
+SSID and BSSID
+every network needs a name
+	ssid= service set identifier "wireless network"
+		there might be multiple access points supporting an SSID
+	bssid= basic service set identifier
+		MAC address- physical access point
+
+Extending the network
+	most orgs have more than one AP
+	wireless network names can be used across access points
+		makes it easier to roam from one part of the network to another
+	the network name shared across access points is an ESSID
+		extended service set identifier
+	your device automatically roams when moving between access points
+		dont have to manually reconnect
+
+Omnidirectional antennas
+	one of the most common
+		included on most access points
+	signal is eveenly distributed on all sides
+	no ability to focus the signal
+
+Directional  antennas
+	focus the signal
+	send and receive in a single direction
+	antenaa performance is measured in dB
+		double power every 3 dB of gain
+	yagi antennal
+		very directional and high gain
+	parabolic antenna
+		focus the signal to a single point
+
+*WIRELESS ENCRYPTION*
+securing a wireless network
+	an organization's wireless network can contain confidential information
+	authenticate the users before granting access
+		username, password, multi-factor
+	ensure that all communication is confidential
+		encrypt the wireless data
+	verify the integrity of all communication
+		the received data should be identical to the original sent data
+		a message integrity check (MIC)
+
+WPA(wifi protected access)
+replaced wep (wired equivalent privacy)
+	needed a short-term bridge between WEP and next standard
+RC3 with TKIP(Temporal Key Integrity Protocol)
+	initialization vector (IV) is larger and an encrypted hash
+	every packet gets a unique 128-bit encryption key
+
+Wireless encyption
+	all wireless computers are radio transmitters and receivers
+	solution: Encrypt the data
+		encryption key
+	only people with the right key can transmit and listen
+		WPA2 and WPA3
+
+WPA2 and CCMP
+	2004- wifi protected access 2
+CCMP block cipher mode
+-counter mode with cipher block chaining message authentication code protocol, or counter/ CBC-MAS protocol
+CCMP security services
+	AES encryption
+	MIC
+
+WPA3 and GCMP
+	wifi protected access 3- 2018
+GCMP cipher mode
+	Galois/ Counter Mode Protocol
+	AES encryption
+	MIC with Galois Message Authentication Code (GMAC)
+
+WPA2 PSK problem
+	brute force problem
+		listen to the four-way handshake
+		come methods can derive the PSK hash without the handshake
+	with the hash, atttackers can brute force the pre-shared key (PSK)
+	
+SAE
+WPA3 changes the PSK authentication process
+	includes mutual authentication
+	creates a shared session key without sending that key across the network
+	adds perfect forward secrecy
+SAE= Simultaneous Authentication of Equals
+	a Diffie-Hellman derived key exchange with an authentication component
+	"dragonfly handshake"
+
+Wireless security modes
+open system
+	no authentication password is required
+WPA/2/3- personal / WPA/2/3-psk
+	WPA2 or WPA3 with a pre-shared key
+	everyone uses the same 256-bit key
+WPA/2/3- Enterprise / WPA/2/3-802.1X
+	authenticates users individually with an authentication server
+	example: RADIUS
+
+*CELLULAR STANDARDS*
+Cellular networks
+2G networks
+	GSM= global system for mobile communications
+	CDMA- code division multiple access
+poor data suport
+	originally used circuit-switching
+	minor upgrades for some packet-switching
+GSM
+	mobile networking standard
+	EU standard
+	worldwide coverage
+	AT&T and T-Mobile 
+		move SIM from one phone to another
+	original standard used multiplexing
+		everyone gets a littele slice of time
+CDMA
+	everyone communicates at the same time
+	each call uses a different code
+	the codes are used to filter each call on the receiving side
+	Verison and Spring
+		handsets are controlled by the network provider
+	
+3G technology-1998
+improved speeds
+bandwidth improvement allowed new functionality
+	GPS
+	mobile television
+	video on demand
+	video conferencing
+
+4G and LTE= long term evolution
+	covereged standard (GSM and CDMA providers)
+	based on GSM and EDGE = enhanced data rates for GSM evolution
+	download rates of 150Mbits/s
+LTE advanced (LTE-A)
+	standard supports download rates of 300Mbit/s
+
+5G-2020
+5th gen cellular networking
+performance improvements
+	10Gbits/s
+bandwidth become less of a constraint
+larger data transfers
+faster monitoring and notification
+additional cloud processing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
